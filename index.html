@@ -1,105 +1,83 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>PS4IDEA HOST Jailbreak</title>
-    <script src="./bundle.js"></script>
-    <style>
-      body {
-        background:url('icon0.png');
-        background-color: #252526;
-        color: #cccccc;
-        font-family: "Segoe UI", Tahoma, sans-serif;
-        text-align: center;
-      }
-      h2 {
-        margin-bottom: 20px;
-      }
-      #console {
-        font-family: monospace;
-        background-color: #1e1e1e;
-        color: #cccccc;
-        border: 1px solid #3c3c3c;
-        padding: 12px;
-        border-radius: 6px;
-        margin-top: 20px;
-        text-align: left;
-      }
-      #jailbreakBtn {
-        margin-top: 20px;
-        padding: 12px 24px;
-        font-size: 18px;
-        font-weight: bold;
-        background: #007acc;
-        color: #fff;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-      #jailbreakBtn:disabled {
-        background: #555555;
-        color: #aaaaaa;
-        cursor: not-allowed;
-      }
-      #jailbreakBtn:not(:disabled):hover {
-        background: #005a9e;
-      }
-      footer {
-        margin-top: 30px;
-        font-size: 14px;
-        color: #888;
-      }
-    </style>
-    <script>
-      if ((window.applicationCache.status == '0') || (window.applicationCache.status == '3')) { // 0: UNCACHED, 3: IDLE
-        window.location.replace("cache.html");
-      }
-    </script>
-  </head>
-  <body>
-    <h2> PS4IDEA HOST 7.00 - 9.60 </h2>
-    <div>
-      <button id="jailbreakBtn">Start Jailbreak</button>
-    </div>
-    <pre id="console"></pre>
-    <footer>
-       <h1>  THIS HOST FROM PS4IDEA
-        <h2>   SPICIAL THANKS <strong>Feyzee</strong>
-    </footer>
-  </body>
-  <script>
-    // Logging utility
-    const outputConsole = document.getElementById("console");
-    window.log = (msg, color="#cccccc") => { outputConsole.innerHTML += `<span style="color:${color}">${msg}</span><br>`; };
-    // Event definitions
-    addEventListener('unhandledrejection', event => {
-      const reason = event.reason;
-      alert(
-        'Unhandled rejection\n'
-        + `${reason}\n`
-        + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
-        + `${reason.stack}`
-      );
-    });
-    addEventListener('error', event => {
-      const reason = event.error;
-      alert(
-        'Unhandled error\n'
-        + `${reason}\n`
-        + `${reason.sourceURL}:${reason.line}:${reason.column}\n`
-        + `${reason.stack}`
-      );
-      return true; // Used for not to show error message on console
-    });
-    // Button click
-    document.getElementById("jailbreakBtn").addEventListener("click", () => {
-      // Disable to prevent double click
-      document.getElementById("jailbreakBtn").disabled = true;
-      outputConsole.textContent = ""; // Clear console log
-      try {
+<head>
+<meta charset="utf-8">
+<title> HOST Jailbreak</title>
+<script src="./bundle.js"></script>
+
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    background:url('icon0.png') center center no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+    font-family:"Segoe UI",Tahoma,sans-serif;
+    text-align:center;
+    color:#fff;
+}
+
+h2{
+    margin-top:80px;
+    text-shadow:0 0 10px #000;
+}
+
+#jailbreakBtn{
+    margin-top:20px;
+    padding:12px 24px;
+    font-size:18px;
+    font-weight:bold;
+    background:#007acc;
+    color:#fff;
+    border:none;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+#jailbreakBtn:disabled{
+    background:#555;
+    cursor:not-allowed;
+}
+
+#jailbreakBtn:hover:not(:disabled){
+    background:#005a9e;
+}
+</style>
+
+<script>
+if ((window.applicationCache.status == '0') || (window.applicationCache.status == '3')) {
+    window.location.replace("cache.html");
+}
+</script>
+
+</head>
+
+<body>
+
+<h2> HOST 7.00 - 9.60</h2>
+
+<button id="jailbreakBtn">Start Jailbreak</button>
+
+<script>
+addEventListener('unhandledrejection', event => {
+    alert('Error: ' + event.reason);
+});
+
+addEventListener('error', event => {
+    alert('Error: ' + event.error);
+    return true;
+});
+
+document.getElementById("jailbreakBtn").addEventListener("click", () => {
+    document.getElementById("jailbreakBtn").disabled = true;
+
+    try {
         doJBwithPSFreeLapseExploit();
-      } catch (error) {
-        window.log("An error occured during exploit: " + error, "red");
-      }
-    });
-  </script>
+    } catch (error) {
+        alert(error);
+    }
+});
+</script>
+
+</body>
 </html>
